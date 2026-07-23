@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minecraft Inventory: Python Lists</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <div class="brand-mark">🟩</div>
+      <div>
+        <h1>Steve's Inventory</h1>
+        <p>Learn Python Lists the Minecraft way!</p>
+      </div>
+    </div>
+    <nav class="tabs">
+      <button class="active" data-tab="welcome">Main Menu</button>
+      <button data-tab="story">Survival Mode</button>
+      <button data-tab="sandbox">Creative Sandbox</button>
+    </nav>
+  </header>
+
+  <!-- ============ WELCOME VIEW ============ -->
+  <div class="view active" id="view-welcome">
+    <div class="hero-section">
+      <div class="hero-text">
+        <h2 class="display">Ready to Survive?</h2>
+        <p>Join Steve and use his Inventory to learn all about <strong>Python Lists</strong>.</p>
+        <p>A list in Python is exactly like a Minecraft hotbar: you can add items, move them around, take them out, and craft with them!</p>
+        <button class="primary-btn huge-btn accent" id="startBtn">Start Survival Mode</button>
+      </div>
+      <div class="hero-image" style="display:flex; justify-content:center;">
+        <div style="font-size: 150px; filter: drop-shadow(10px 10px 0px rgba(0,0,0,0.5));">⛏️</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ STORY VIEW ============ -->
+  <div class="view" id="view-story">
+    <div class="grid story-layout">
+      <!-- LEFT PANEL: PROGRESS -->
+      <div>
+        <div class="panel progress-panel" style="position: sticky; top: 20px;">
+          <h2>Advancements</h2>
+          <div class="step-indicator" id="stepIndicator">
+            <div class="step active" data-step="0">1. Empty Inventory</div>
+            <div class="step" data-step="1">2. Wood (Append)</div>
+            <div class="step" data-step="2">3. Stone (Append)</div>
+            <div class="step" data-step="3">4. Diamond (Append)</div>
+            <div class="step" data-step="4">5. Count Items (len)</div>
+            <div class="step" data-step="5">6. Creeper! (Insert)</div>
+            <div class="step" data-step="6">7. Attack! (Pop)</div>
+            <div class="step" data-step="7">8. Organize (Sort)</div>
+            <div class="step" data-step="8">9. Survived!</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL: CONTENT & OUTPUT -->
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- TOP: STORY & SYNTAX -->
+        <div class="panel story-panel">
+          <h2 id="storyTitle">1. The Empty Inventory</h2>
+          <p id="storyText">Steve spawned in a new world! But he has nothing. Right now, his inventory is completely empty.</p>
+          
+          <div id="pythonInterpretation" style="margin-bottom: 24px; padding: 14px; background: #000; border: 4px solid #555; color: #fff;">
+             <div style="color: #55ff55; font-size: 20px; text-transform: uppercase; margin-bottom: 6px;">[Python Translation]</div>
+             <div id="pythonText" style="font-size: 22px; line-height: 1.5;">In Python, an empty list is created with square brackets [].</div>
+          </div>
+
+          <div class="action-box">
+            <div id="storyInputArea" style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
+              <label id="storyInstruction" style="font-size: 20px; color: #111;">Write the Python code to create an empty list:</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="text" id="storyCodeInput" class="mono" placeholder="e.g., inventory = []" autocomplete="off">
+                <button class="primary-btn accent" id="storyActionBtn">Execute</button>
+              </div>
+              <div id="storyFeedback" style="font-size: 20px; min-height: 24px; margin-top: 8px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM: OUTPUT (VISUAL HOTBAR) -->
+        <div class="stage">
+          <div class="stage-header">
+            <div class="code-line mono" id="storyCodeLine">inventory = ???</div>
+            <div class="meta-pills">
+              <span class="pill" id="storyLenPill">len = 0</span>
+            </div>
+          </div>
+          <div class="track-wrap">
+            <div class="track" id="storyTrack"><div class="rail"></div></div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SANDBOX VIEW ============ -->
+  <div class="view" id="view-sandbox">
+    <div class="grid sandbox-layout">
+      <!-- LEFT CONTROLS -->
+      <div>
+        <div class="panel" style="padding: 16px;">
+          <h2>Crafting Operations</h2>
+          <div id="op-groups"></div>
+        </div>
+        <div class="panel">
+          <h2>Game Speed</h2>
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <span>Slow</span>
+            <input type="range" id="speedSlider" min="0.4" max="2.5" step="0.1" value="1" style="flex: 1;">
+            <span>Fast</span>
+          </div>
+          <div style="margin-top: 16px;">
+            <button id="resetBtn" class="runbtn" style="width: 100%;">🗑 Drop All Items</button>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Server Log</h2>
+          <div class="history-list" id="historyList"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT STAGE -->
+      <div>
+        <div class="stage">
+          <div class="stage-header">
+            <div class="code-line mono" id="codeLine">inventory = ['Wood', 'Stone']</div>
+            <div class="meta-pills">
+              <span class="pill" id="lenPill">len = 2</span>
+              <span class="pill" id="opPill" style="background:#3f9a3f;">ready</span>
+            </div>
+          </div>
+          <div class="track-wrap">
+            <div class="track" id="track"><div class="rail"></div></div>
+          </div>
+          <div id="errBanner"></div>
+        </div>
+
+        <div class="panel" style="margin-top: 20px;">
+          <h2>Command Output</h2>
+          <div class="explain-grid" id="explainGrid"></div>
+          <div class="analogy" id="analogyBox" style="display:none;"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Algorithm Complexity</h2>
+          <table class="complexity">
+            <thead><tr><th>Operation</th><th>Time Complexity</th></tr></thead>
+            <tbody id="complexityBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
