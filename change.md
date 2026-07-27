@@ -26,7 +26,6 @@ Major feature release integrating the interactive **Minecraft Lists Learning Mod
   - `components/SurvivalMode.jsx` — guided narrative advancing through 9 interactive inventory challenges (`[]`, `append()`, `len()`, `insert()`, `pop()`, `sort()`).
   - `components/CreativeSandbox.jsx` — open experimentation playground supporting 17 distinct Python list operations, REPL simulation history, and Big-O time complexity badges (`O(1)`, `O(n)`, `O(n log n)`).
   - `components/Stage.jsx` — presentation component rendering the inventory hotbar and executing smooth FLIP (First, Last, Invert, Play) layout animations via React's `useLayoutEffect`.
-- `client/public/minecraft-list/hero_backpack.jpg` — header banner asset for the module.
 - `client/src/pages/MinecraftList/README.md` — module-specific technical documentation and component API guide.
 - `client/vite.config.js` — custom Vite configuration supporting asset resolution and monorepo client builds.
 - `vercel.json` (root) — Vercel monorepo configuration directing automated builds to `client` (`cd client && npm install && npm run build`), output path `client/dist`.
