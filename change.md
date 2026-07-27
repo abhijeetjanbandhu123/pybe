@@ -17,7 +17,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 ## **Version [2.0.0]** — 2026-07-25
 
 ### Summary
-Major feature release integrating the interactive **Minecraft Lists Learning Module** into the PyBe SPA. Ships a gamified 9-step guided *Survival Mode* story, a 17-operation *Creative Sandbox* with real-time FLIP DOM animations, flexible input validation supporting both natural English and strict Python syntax, Vercel monorepo deployment configuration, and complete product documentation.
+Major feature release integrating the interactive **Minecraft Lists Learning Module** into the PyBe SPA. Ships a gamified 9-step guided *Survival Mode* story, a 17-operation *Creative Sandbox* with real-time FLIP DOM animations, flexible input validation supporting both natural English and strict Python syntax, and complete product documentation.
 
 ### Added
 - **`client/src/pages/MinecraftList/`** — complete React module for gamified Python List learning.
@@ -28,8 +28,6 @@ Major feature release integrating the interactive **Minecraft Lists Learning Mod
   - `components/Stage.jsx` — presentation component rendering the inventory hotbar and executing smooth FLIP (First, Last, Invert, Play) layout animations via React's `useLayoutEffect`.
 - `client/src/pages/MinecraftList/README.md` — module-specific technical documentation and component API guide.
 - `client/vite.config.js` — custom Vite configuration supporting asset resolution and monorepo client builds.
-- `vercel.json` (root) — Vercel monorepo configuration directing automated builds to `client` (`cd client && npm install && npm run build`), output path `client/dist`.
-- `client/vercel.json` — client-level Vercel rewrite rules to handle SPA routing.
 - `Product.md` — authoritative project and technical documentation covering architecture, REST API endpoints, database schemas, installation, and design decisions.
 
 ### Changed
@@ -42,7 +40,6 @@ Major feature release integrating the interactive **Minecraft Lists Learning Mod
   - Replaced technical code snippets in placeholders/error messages with clean, welcoming English hints (e.g., `Try: "add wood"`, `Try: "remove sword"`).
 
 ### Fixed
-- Resolved Vercel production `404 NOT_FOUND` errors on SPA routes (e.g., `/minecraft-list`) by adding URL rewrites (`/(.*) → /index.html`) in `vercel.json`.
 - Fixed rigid input validation in Survival Mode that previously rejected valid natural-language attempts from beginner students.
 
 ### Removed

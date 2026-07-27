@@ -307,10 +307,6 @@ Designing and building PyBe required overcoming significant pedagogical and tech
 - **The Challenge:** Absolute beginners frequently get stuck on minor syntax typos (missing quotes, wrong capitalization), while advanced learners want to type strict, authentic Python code.
 - **The Solution:** We designed a hybrid regex validation architecture in our step evaluation engine. The validator intelligently recognizes both common English intent (e.g., `/remove|delete|pop|sword/i`) and formal syntax (`inventory.pop(0)`), accommodating both learning styles seamlessly.
 
-### 4. Monorepo SPA Routing on Serverless Hostings
-- **The Challenge:** Deploying a MERN monorepo on serverless platforms (like Vercel) often causes Single Page Application (SPA) routes (`/minecraft-list`) to throw `404 NOT_FOUND` errors upon direct page refreshes.
-- **The Solution:** We configured root and client-level `vercel.json` routing rules with explicit URL rewrites (`/(.*) -> /index.html`), ensuring flawless deep-linking and browser navigation across all production deployments.
-
 ---
 
 ## Future Scope
@@ -326,7 +322,6 @@ timeline
     V2.0 (Current)   : Interactive Minecraft Lists Module
                      : FLIP Animation Engine & Big-O Badges
                      : Natural Language Command Support
-                     : Vercel Monorepo SPA Deployment
     V3.0 (Upcoming)  : Real-Time Multiplayer Coding Quests
                      : Redstone Logic Circuit Builder (Conditionals)
                      : AI Villager Code Reviewers & Mentors
