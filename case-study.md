@@ -235,7 +235,7 @@ flowchart TD
     subgraph Stage3 [3. The Creative Experimenter]
         F --> G[Unlocks Creative Sandbox]
         G --> H[Tests 17 Arbitrary List Operations with Custom Inputs]
-        H --> I[Analyzes Big-O Time Complexity Badges O(1) vs O(n)]
+        H --> I["Analyzes Big-O Time Complexity Badges O(1) vs O(n)"]
     end
 
     subgraph Stage4 [4. The AI-Native Architect]
